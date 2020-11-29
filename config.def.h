@@ -64,8 +64,9 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
   { wifi_perc, " SIG %3s% | ", "wlp1s0" },
+  { run_command, "SFX %4s ", "amixer -M | grep -Eo '[0-9]{1,3}%' | head -1" },
+  { run_command, "%5s | ", "amixer -M | grep -Eo '\\[on\\]|\\[off\\]' | head -1" },
   { run_command, "LED %4s | ", "brightnessctl | grep -Eo '[0-9]{1,3}%'" },
-  { run_command, "SFX %4s | ", "amixer -M | grep -Eo '[0-9]{1,3}%' | head -1" },
   { cpu_perc, "CPU %3s% | ", NULL },
   { ram_perc, "RAM %3s% | ", NULL },
   { disk_perc, "SSD %3s% | ", "/" },
